@@ -75,6 +75,7 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic, UITabl
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.title = "Marvel"
         configureTable()
         searchBar.delegate = self
     }
