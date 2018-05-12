@@ -18,6 +18,7 @@
 		935E469B20A71BE2001843D2 /* ResourceCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935E469720A71BE1001843D2 /* ResourceCollectionDelegate.swift */; };
 		935E469C20A71BE2001843D2 /* ResourceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935E469820A71BE1001843D2 /* ResourceCollectionViewCell.swift */; };
 		935E469D20A71BE2001843D2 /* ResourceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935E469920A71BE2001843D2 /* ResourceCollectionViewCell.xib */; };
+		935E46A020A7425E001843D2 /* UIImageView+KFLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935E469F20A7425E001843D2 /* UIImageView+KFLoader.swift */; };
 		939F094120A5C4460030B52C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F094020A5C4460030B52C /* AppDelegate.swift */; };
 		939F094320A5C4460030B52C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F094220A5C4460030B52C /* ViewController.swift */; };
 		939F094820A5C4460030B52C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939F094720A5C4460030B52C /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		935E469720A71BE1001843D2 /* ResourceCollectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceCollectionDelegate.swift; sourceTree = "<group>"; };
 		935E469820A71BE1001843D2 /* ResourceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceCollectionViewCell.swift; sourceTree = "<group>"; };
 		935E469920A71BE2001843D2 /* ResourceCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourceCollectionViewCell.xib; sourceTree = "<group>"; };
+		935E469F20A7425E001843D2 /* UIImageView+KFLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+KFLoader.swift"; sourceTree = "<group>"; };
 		939F093D20A5C4460030B52C /* Marvel-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		939F094020A5C4460030B52C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		939F094220A5C4460030B52C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			children = (
 				93DAEF2520A621FE00B0D3DD /* RoundView.swift */,
 				93DAEF2620A621FE00B0D3DD /* UIStoryboard+Extension.swift */,
+				935E469F20A7425E001843D2 /* UIImageView+KFLoader.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				93ACF89D20A6F86600CE51C3 /* DetailScreenModels.swift in Sources */,
 				930433D320A5FAB100AC2BE5 /* MainScreenInteractor.swift in Sources */,
 				93ACF89B20A6F86600CE51C3 /* DetailScreenWorker.swift in Sources */,
+				935E46A020A7425E001843D2 /* UIImageView+KFLoader.swift in Sources */,
 				935E468D20A7113D001843D2 /* Comic.swift in Sources */,
 				93DAEF2D20A622F100B0D3DD /* HeroesTableDataSource.swift in Sources */,
 				93DAEF3B20A623AB00B0D3DD /* HeroTableCell.swift in Sources */,

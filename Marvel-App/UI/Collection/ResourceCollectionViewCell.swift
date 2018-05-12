@@ -33,12 +33,7 @@ class ResourceCollectionViewCell: UICollectionViewCell {
         MainScreenWorker().getComicThumbnailData(url: data.resourceURI) { (comicImage, error) in
             guard let comicImage = comicImage, let url = URL(string: comicImage) else { return }
             let resource = ImageResource(downloadURL: url)
-            self.thumbnail.kf.indicatorType = .activity
-            (self.thumbnail.kf.indicator?.view as? UIActivityIndicatorView)?.color = .white
-            self.thumbnail.kf.indicator?.startAnimatingView()
-            self.thumbnail.kf.setImage(with: resource, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, _, _, _) in
-                self.thumbnail.kf.indicator?.stopAnimatingView()
-            })
+            self.thumbnail.setImage(with: resource, activateLoader: true)
         }
     }
     
