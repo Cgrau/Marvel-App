@@ -1,9 +1,9 @@
 //
-//  PeopleCollectionController.swift
-//  NewsFeed
+//  ResourceCollectionDataSource.swift
+//  Marvel-App
 //
-//  Created by Carles Grau Galvan on 17/04/2017.
-//  Copyright © 2017 Carles Grau Galvan. All rights reserved.
+//  Created by Carles Grau Galvan on 12/05/2018.
+//  Copyright © 2018 Carles Grau Galvan. All rights reserved.
 //
 
 import UIKit
@@ -13,7 +13,11 @@ let cellNibName = "ResourceCollectionViewCell"
 
 class ResourceCollectionDataSource: NSObject, UICollectionViewDataSource {
     
-    var resourceData: [Item]!
+    var resourceData: [Item]! /*{
+     //        willSet{
+     //            newValue.compactMap{$0}.filter{$0.thumbnail == nil}
+     //        }
+     //    }*/
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

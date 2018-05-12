@@ -1,5 +1,5 @@
 //
-//  HeroeTableCell.swift
+//  heroTableCell.swift
 //  marvel-app
 //
 //  Created by Carles Grau Galvan on 13/05/2017.
@@ -9,22 +9,21 @@
 import UIKit
 import Kingfisher
 
-class HeroeTableCell: UITableViewCell {
+class HeroTableCell: UITableViewCell {
 
     @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var name: UILabel!
     
-    var heroeData: Character!{
+    var heroData: Character!{
         didSet{
-            self.fillCell(withData: heroeData)
+            self.fillCell(withData: heroData)
         }
     }
     
     func fillCell(withData data: Character){
-        guard let path = data.thumbnail?.path else { return }
-        guard let url = URL(string: path) else { return }
-        let resource = ImageResource.init(downloadURL: url)
-        self.thumbnail.kf.indicatorType = .activity
+        guard let thumbnail = data.thumbnail else { return }
+        guard let url = APIClient.getImageURL(downloadURL: thumbnail.path, extension: thumbnail.thumbnailExtension) else { return }
+        let resource = ImageResource(downloadURL: url)
         self.thumbnail.kf.setImage(with: resource)
         self.name.text = data.name
     }

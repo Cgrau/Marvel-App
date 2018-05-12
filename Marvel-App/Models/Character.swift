@@ -8,17 +8,17 @@
 
 import Foundation
 
-struct ServiceResponse: Decodable {
+struct ServiceResponse<T:Decodable>: Decodable {
     let status, copyright, attributionText: String?
     let code: Int?
     let attributionHTML: String?
-    let data: DataClass?
+    let data: DataClass<T>?
     let etag: String?
 }
 
-struct DataClass: Decodable {
+struct DataClass<T:Decodable>: Decodable {
     let offset, limit, total, count: Int?
-    let results: [Character]?
+    let results: [T]?
 }
 
 struct Character: Decodable {
@@ -59,6 +59,7 @@ struct Resources: Decodable {
 struct Item: Decodable {
     var resourceURI: String = ""
     var name: String = ""
+    var thumbnail: Thumbnail?
 }
 
 struct urlData: Decodable {

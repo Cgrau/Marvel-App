@@ -11,8 +11,8 @@ import UIKit
 
 class HeroesTableDataSource: NSObject, UITableViewDataSource{
     
-    let reuseIdentifier = "HeroeTableCellID"
-    let cellNibName = "HeroeTableCell"
+    let reuseIdentifier = "HeroTableCellID"
+    let cellNibName = "HeroTableCell"
     
     var data: Array<Character> = []
     
@@ -20,8 +20,8 @@ class HeroesTableDataSource: NSObject, UITableViewDataSource{
         let nibName = UINib(nibName: cellNibName, bundle:nil)
         tableView.register(nibName, forCellReuseIdentifier: reuseIdentifier)
         
-        let cell: HeroeTableCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! HeroeTableCell
-        cell.heroeData = data[indexPath.row]
+        let cell: HeroTableCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! HeroTableCell
+        cell.heroData = data[indexPath.row]
         
         return cell
     }

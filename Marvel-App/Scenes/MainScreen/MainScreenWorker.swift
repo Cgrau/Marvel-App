@@ -44,7 +44,7 @@ class MainScreenWorker
                 if let jsonData = response.result.value {
                     do {
                         let decoder = JSONDecoder()
-                        let product = try decoder.decode(ServiceResponse.self, from: jsonData)
+                        let product = try decoder.decode(ServiceResponse<Character>.self, from: jsonData)
                         return completion(product.data?.results, nil)
                     } catch let error {
                         print(error)
@@ -63,21 +63,25 @@ class MainScreenWorker
         return url + "?ts=\(ts)&apikey=\(publicKey)&hash=\(md5String)"
     }
     
-    func getComicThumbnailData(url: String, completionHandler: @escaping ((String?, Error?)->Void)){
+    func getComicThumbnailData(url: String, completion: @escaping (_ entity: String?, _ error: Error?)->Void){
         let defURL = getLink(url: url)
         
-        Alamofire.request(defURL).responseString { (data) in
-            if data.result.isSuccess{
-                let jsonString = data.result.value
-                if let dataFromString = jsonString?.data(using: .utf8, allowLossyConversion: false) {
-                    guard let responseModel = try? self.decoder.decode(ServiceResponse.self, from: dataFromString) else { return }
-                    // FIX-ME
-                    guard let data = responseModel.data, let thumbnail = data.results![0].thumbnail else { return }
-                    let resourceURI = thumbnail.path + "/portrait_xlarge." + thumbnail.thumbnailExtension
-                    completionHandler(resourceURI, nil)
+        Alamofire.request(defURL).responseData { (response) in
+            switch response.result {
+            case .success:
+                if let jsonData = response.result.value {
+                    do {
+                        let decoder = JSONDecoder()
+                        let responseModel = try decoder.decode(ServiceResponse<Comic>.self, from: jsonData)
+                        guard let data = responseModel.data, let thumbnail = data.results![0].thumbnail else { return }
+                        let imageURL = thumbnail.path + "/portrait_xlarge." + thumbnail.thumbnailExtension
+                        return completion(imageURL, nil)
+                    } catch let error {
+                        print(error)
+                    }
                 }
-            }else{
-                completionHandler(nil, data.result.error!)
+            case .failure(let error):
+                completion(nil, error)
             }
         }
     }

@@ -105,6 +105,6 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        router.passDataToCharacterDetail()
+        router?.passDataToCharacterDetail()
     }
 }

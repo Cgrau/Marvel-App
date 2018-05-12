@@ -1,16 +1,16 @@
 //
-//  PeopleCollectionViewCell.swift
-//  NewsFeed
+//  ResourceCollectionViewCell.swift
+//  Marvel-App
 //
-//  Created by Carles Grau Galvan on 13/04/2017.
-//  Copyright © 2017 Carles Grau Galvan. All rights reserved.
+//  Created by Carles Grau Galvan on 12/05/2018.
+//  Copyright © 2018 Carles Grau Galvan. All rights reserved.
 //
 
 import UIKit
 import Kingfisher
 
 class ResourceCollectionViewCell: UICollectionViewCell {
-
+    
     var data: Item! {
         didSet{
             self.fillCell(withData: data)
