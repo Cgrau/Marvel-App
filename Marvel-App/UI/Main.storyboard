@@ -254,6 +254,9 @@
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FFT-lh-FSU">
                                                     <rect key="frame" x="16" y="40" width="354" height="143"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="143" id="1om-Xx-G0y"/>
+                                                    </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nnZ-65-726">
                                                         <size key="itemSize" width="118" height="130"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -281,14 +284,13 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="FFT-lh-FSU" firstAttribute="leading" secondItem="KRv-rg-eTr" secondAttribute="leadingMargin" id="2uz-gG-QFM"/>
                                                 <constraint firstItem="fMA-DY-Xxg" firstAttribute="leading" secondItem="KRv-rg-eTr" secondAttribute="leadingMargin" id="Bhe-wH-04M"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="FFT-lh-FSU" secondAttribute="trailing" constant="-8" id="CEl-Fe-i6v"/>
                                                 <constraint firstItem="fMA-DY-Xxg" firstAttribute="top" secondItem="KRv-rg-eTr" secondAttribute="topMargin" id="ElW-9z-3kp"/>
-                                                <constraint firstAttribute="trailing" secondItem="FFT-lh-FSU" secondAttribute="trailing" constant="8" id="Ki2-VH-tfK"/>
-                                                <constraint firstItem="FFT-lh-FSU" firstAttribute="top" secondItem="fMA-DY-Xxg" secondAttribute="bottom" constant="8" id="cAa-wt-ngO"/>
-                                                <constraint firstItem="FFT-lh-FSU" firstAttribute="trailing" secondItem="KRv-rg-eTr" secondAttribute="trailingMargin" id="jnD-Kv-Ds6"/>
+                                                <constraint firstItem="FFT-lh-FSU" firstAttribute="bottom" secondItem="KRv-rg-eTr" secondAttribute="bottomMargin" id="L3q-9y-Kcg"/>
+                                                <constraint firstItem="FFT-lh-FSU" firstAttribute="leading" secondItem="fMA-DY-Xxg" secondAttribute="leading" id="Nia-1l-oEC"/>
+                                                <constraint firstItem="FFT-lh-FSU" firstAttribute="top" secondItem="fMA-DY-Xxg" secondAttribute="bottom" constant="8" symbolic="YES" id="ngv-MZ-kBq"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="fMA-DY-Xxg" secondAttribute="trailing" id="qOp-Sz-n6B"/>
-                                                <constraint firstItem="FFT-lh-FSU" firstAttribute="bottom" secondItem="KRv-rg-eTr" secondAttribute="bottomMargin" id="xAL-q9-CSM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -303,6 +305,9 @@
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dl9-vv-Kwn">
                                                     <rect key="frame" x="16" y="40" width="354" height="143"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="143" id="G1y-ga-wxl"/>
+                                                    </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Q8Z-bP-4BN">
                                                         <size key="itemSize" width="118" height="130"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -330,14 +335,13 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="dl9-vv-Kwn" firstAttribute="leading" secondItem="jvv-K1-OAc" secondAttribute="leadingMargin" id="Bof-o7-qec"/>
-                                                <constraint firstItem="dl9-vv-Kwn" firstAttribute="bottom" secondItem="jvv-K1-OAc" secondAttribute="bottomMargin" id="Dcu-ex-Npe"/>
-                                                <constraint firstItem="dl9-vv-Kwn" firstAttribute="trailing" secondItem="jvv-K1-OAc" secondAttribute="trailingMargin" id="SO4-h5-tCW"/>
+                                                <constraint firstItem="dl9-vv-Kwn" firstAttribute="bottom" secondItem="jvv-K1-OAc" secondAttribute="bottomMargin" id="3uM-e8-vad"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="K8s-ir-Pds" secondAttribute="trailing" id="WeC-r9-j3e"/>
                                                 <constraint firstItem="K8s-ir-Pds" firstAttribute="top" secondItem="jvv-K1-OAc" secondAttribute="topMargin" id="YE2-ex-1bf"/>
+                                                <constraint firstItem="dl9-vv-Kwn" firstAttribute="leading" secondItem="K8s-ir-Pds" secondAttribute="leading" id="aZI-MK-RQ6"/>
+                                                <constraint firstItem="dl9-vv-Kwn" firstAttribute="top" secondItem="K8s-ir-Pds" secondAttribute="bottom" constant="8" symbolic="YES" id="hd3-aV-KAG"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="dl9-vv-Kwn" secondAttribute="trailing" constant="-8" id="ijU-MR-Do1"/>
                                                 <constraint firstItem="K8s-ir-Pds" firstAttribute="leading" secondItem="jvv-K1-OAc" secondAttribute="leadingMargin" id="usM-3U-ysN"/>
-                                                <constraint firstItem="dl9-vv-Kwn" firstAttribute="top" secondItem="K8s-ir-Pds" secondAttribute="bottom" constant="8" id="xVv-tp-zxI"/>
-                                                <constraint firstAttribute="trailing" secondItem="dl9-vv-Kwn" secondAttribute="trailing" constant="8" id="zdC-Q4-1pA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -352,6 +356,9 @@
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SPO-gS-ME7">
                                                     <rect key="frame" x="16" y="40" width="354" height="143"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="143" id="7kO-TP-cRE"/>
+                                                    </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GJO-hb-bL6">
                                                         <size key="itemSize" width="118" height="130"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -379,13 +386,12 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="SPO-gS-ME7" secondAttribute="trailing" constant="8" id="3CN-eQ-1g9"/>
+                                                <constraint firstItem="SPO-gS-ME7" firstAttribute="leading" secondItem="Y5d-Su-sM6" secondAttribute="leading" id="8nT-ls-juc"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Y5d-Su-sM6" secondAttribute="trailing" id="EYc-DZ-PrM"/>
-                                                <constraint firstItem="SPO-gS-ME7" firstAttribute="leading" secondItem="jFm-xA-scZ" secondAttribute="leadingMargin" id="Fvv-yp-SgD"/>
-                                                <constraint firstItem="SPO-gS-ME7" firstAttribute="bottom" secondItem="jFm-xA-scZ" secondAttribute="bottomMargin" id="NNo-DG-sgn"/>
-                                                <constraint firstItem="SPO-gS-ME7" firstAttribute="trailing" secondItem="jFm-xA-scZ" secondAttribute="trailingMargin" id="mak-Th-txV"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="SPO-gS-ME7" secondAttribute="trailing" constant="-8" id="SET-8H-wlT"/>
+                                                <constraint firstItem="SPO-gS-ME7" firstAttribute="top" secondItem="Y5d-Su-sM6" secondAttribute="bottom" constant="8" symbolic="YES" id="U2N-u3-uCX"/>
+                                                <constraint firstItem="SPO-gS-ME7" firstAttribute="bottom" secondItem="jFm-xA-scZ" secondAttribute="bottomMargin" id="XPd-Mg-q3Y"/>
                                                 <constraint firstItem="Y5d-Su-sM6" firstAttribute="leading" secondItem="jFm-xA-scZ" secondAttribute="leadingMargin" id="qMr-8r-uzj"/>
-                                                <constraint firstItem="SPO-gS-ME7" firstAttribute="top" secondItem="Y5d-Su-sM6" secondAttribute="bottom" constant="8" id="vXs-5S-K3Z"/>
                                                 <constraint firstItem="Y5d-Su-sM6" firstAttribute="top" secondItem="jFm-xA-scZ" secondAttribute="topMargin" id="wZI-dZ-WqA"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -401,6 +407,9 @@
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ck8-3Q-ucJ">
                                                     <rect key="frame" x="16" y="40" width="354" height="143"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="143" id="4co-Km-kMB"/>
+                                                    </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iDA-bf-bnR">
                                                         <size key="itemSize" width="118" height="130"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -428,14 +437,13 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="ck8-3Q-ucJ" secondAttribute="trailing" constant="8" id="AaQ-sM-Vbj"/>
                                                 <constraint firstItem="Cta-A3-lAO" firstAttribute="leading" secondItem="apL-bD-rnd" secondAttribute="leadingMargin" id="F2F-Mq-XVO"/>
-                                                <constraint firstItem="ck8-3Q-ucJ" firstAttribute="trailing" secondItem="apL-bD-rnd" secondAttribute="trailingMargin" id="R7A-fD-ed6"/>
-                                                <constraint firstItem="ck8-3Q-ucJ" firstAttribute="top" secondItem="Cta-A3-lAO" secondAttribute="bottom" constant="8" id="ZJ6-C7-Gmg"/>
+                                                <constraint firstItem="ck8-3Q-ucJ" firstAttribute="top" secondItem="Cta-A3-lAO" secondAttribute="bottom" constant="8" symbolic="YES" id="KqQ-sP-Htp"/>
+                                                <constraint firstItem="ck8-3Q-ucJ" firstAttribute="leading" secondItem="Cta-A3-lAO" secondAttribute="leading" id="THw-NK-lpk"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ck8-3Q-ucJ" secondAttribute="trailing" constant="-8" id="ajA-4G-ZXh"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Cta-A3-lAO" secondAttribute="trailing" id="as4-Im-f38"/>
-                                                <constraint firstItem="ck8-3Q-ucJ" firstAttribute="leading" secondItem="apL-bD-rnd" secondAttribute="leadingMargin" id="cZB-ab-vwf"/>
                                                 <constraint firstItem="Cta-A3-lAO" firstAttribute="top" secondItem="apL-bD-rnd" secondAttribute="topMargin" id="g7g-61-c0G"/>
-                                                <constraint firstItem="ck8-3Q-ucJ" firstAttribute="bottom" secondItem="apL-bD-rnd" secondAttribute="bottomMargin" id="j5H-hq-veY"/>
+                                                <constraint firstItem="ck8-3Q-ucJ" firstAttribute="bottom" secondItem="apL-bD-rnd" secondAttribute="bottomMargin" id="tQn-mh-I4C"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

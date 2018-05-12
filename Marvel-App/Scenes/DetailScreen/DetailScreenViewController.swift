@@ -98,15 +98,7 @@ class DetailScreenViewController: UITableViewController, DetailScreenDisplayLogi
     {
         super.viewDidLoad()
         doSomething()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-//        self.topImage.imageFromURL(urlString: (interactor?.selectedCharacter.thumbnail?.path)!)
-//        self.heroeName.text = output.selectedCharacter.name
-//        self.heroeDescription.text = output.selectedCharacter.desc
-//        
-//        let isFavRequest = SelectedChar.Favorite.IsSelected.Request(char: interactor?.selectedCharacter)
-//        output.isFavorite(request: isFavRequest)
+        setupCollections()
     }
     
     func doSomething()
@@ -118,6 +110,9 @@ class DetailScreenViewController: UITableViewController, DetailScreenDisplayLogi
         self.topImage.kf.setImage(with: resource)
         self.heroeName.text = interactor?.selectedCharacter.name
         self.heroeDescription.text = interactor?.selectedCharacter.description
+    }
+    
+    private func setupCollections(){
         setupComicCollection()
         setupSerieCollection()
         setupStoryCollection()

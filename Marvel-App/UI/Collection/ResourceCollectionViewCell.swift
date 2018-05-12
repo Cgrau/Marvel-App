@@ -41,6 +41,7 @@ class ResourceCollectionViewCell: UICollectionViewCell {
         super.init(coder: aDecoder)
     }
     override func prepareForReuse() {
+        thumbnail.kf.cancelDownloadTask()
         self.thumbnail.image = nil
         super.prepareForReuse()
     }

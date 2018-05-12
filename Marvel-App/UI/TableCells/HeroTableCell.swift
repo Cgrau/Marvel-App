@@ -43,6 +43,7 @@ class HeroTableCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
+        thumbnail.kf.cancelDownloadTask()
         self.thumbnail.image = nil
         super.prepareForReuse()
     }

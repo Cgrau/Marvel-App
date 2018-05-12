@@ -16,7 +16,8 @@ fileprivate enum URLType: String {
     case `default` = "&"
 }
 
-private let imageSize = "/portrait_xlarge."
+private let portraitImageSize = "/portrait_xlarge."
+private let landscapeImageSize = "/landscape_large."
 
 final class APIClient {
     
@@ -52,7 +53,7 @@ final class APIClient {
         let defURL = getLink(url: url, urlType: .image)
         request(with: defURL, type: ServiceResponse<Comic>.self) { (result, error) in
             guard let data = result?.data, let thumbnail = data.results![0].thumbnail else { return }
-            let imageURL = thumbnail.path + imageSize + thumbnail.thumbnailExtension
+            let imageURL = thumbnail.path + portraitImageSize + thumbnail.thumbnailExtension
             return completion(imageURL, nil)
         }
     }
@@ -77,7 +78,7 @@ final class APIClient {
     }
     
     static func getImageURL(downloadURL: String, extension: String) -> URL? {
-        let path = downloadURL + imageSize + `extension`
+        let path = downloadURL + landscapeImageSize + `extension`
         guard let url = URL(string: path) else { return nil }
         return url
     }
