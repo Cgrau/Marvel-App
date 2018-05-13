@@ -13,7 +13,7 @@ protocol MainScreenDisplayLogic: class
     func displayFetchedItems(viewModel: MainScreen.FetchItems.ViewModel)
 }
 
-class MainScreenViewController: UIViewController, MainScreenDisplayLogic, UITableViewDelegate, UISearchBarDelegate
+class MainScreenViewController: UIViewController, MainScreenDisplayLogic
 {
     var interactor: MainScreenBusinessLogic?
     var router: (NSObjectProtocol & MainScreenRoutingLogic & MainScreenDataPassing)?
@@ -27,6 +27,12 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic, UITabl
     var tableDelegate: HeroesTableDelegate?
     
     @IBOutlet weak var noResultsView: RoundBorderView!
+    
+    fileprivate lazy var dismissLayer: UIButton = {
+        let button = UIButton(frame: UIScreen.main.bounds)
+        button.addTarget(self, action: #selector(MainScreenViewController.dismissKeyboard), for: .touchUpInside)
+        return button
+    }()
     
     // MARK: Object lifecycle
     
@@ -58,18 +64,6 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic, UITabl
         router.dataStore = interactor
     }
     
-    // MARK: Routing
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
-    
     // MARK: View lifecycle
     
     override func viewDidLoad()
@@ -79,7 +73,6 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic, UITabl
         configureTable()
         searchBar.delegate = self
     }
-    //@IBOutlet weak var nameTextField: UITextField!
     
     func displayFetchedItems(viewModel: MainScreen.FetchItems.ViewModel){
         tableDataSource?.data = viewModel.displayedItems
@@ -96,15 +89,36 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic, UITabl
         tableDataSource = HeroesTableDataSource()
         table.dataSource = tableDataSource
     }
+}
+
+extension MainScreenViewController: UISearchBarDelegate {
+    
+    @objc private func dismissKeyboard() {
+        searchBar.endEditing(true)
+    }
+    
+    fileprivate func addDismissKeyboardLayer() {
+        self.view.addSubview(dismissLayer)
+        self.view.bringSubview(toFront: searchBar)
+    }
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         noResultsView.hide()
+        addDismissKeyboardLayer()
     }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.dismissLayer.removeFromSuperview()
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
         let request = MainScreen.FetchItems.Request(searchString: searchBar.text!.trimmingCharacters(in: .whitespaces))
         actInd.startAnimating()
         interactor?.search(request: request)
+        dismissKeyboard()
     }
-    
+}
+
+extension MainScreenViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         router?.passDataToCharacterDetail()
     }
