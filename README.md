@@ -1,8 +1,7 @@
 # Marvel-App
-### Features:
 - Swift 4
 - Clean Swift
-- Marve API
+- Marvel API
 - Unit Test
 
 ### Third Party Libraries:
@@ -11,4 +10,6 @@
 - CryptoSwift
 
 ### Setup:
-``` pod install
+```
+pod install
+```
