@@ -9,7 +9,7 @@
 struct Comic: Decodable {
     let id, digitalID: Int?
     let title: String?
-    let issueNumber: Int?
+    let issueNumber: Double?
     let variantDescription, description, modified, isbn: String?
     let upc, diamondCode, ean, issn: String?
     let format: String?
