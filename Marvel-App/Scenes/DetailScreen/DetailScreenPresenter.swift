@@ -14,18 +14,33 @@ import UIKit
 
 protocol DetailScreenPresentationLogic
 {
-  func presentCharacter(response: DetailScreen.SelectedCharacter.Response)
+    func presentCharacter(response: DetailScreen.SelectedCharacter.Response)
+    func presentComicCollection(request: DetailScreen.CollectionSettings.Response)
+    func presentSerieCollection(request: DetailScreen.CollectionSettings.Response)
+    func presentEventCollection(request: DetailScreen.CollectionSettings.Response)
 }
 
 class DetailScreenPresenter: DetailScreenPresentationLogic
 {
-  weak var viewController: DetailScreenDisplayLogic?
-  
-  // MARK: Do something
-  
-    func presentCharacter(response: DetailScreen.SelectedCharacter.Response)
-    {
-        let response = DetailScreen.SelectedCharacter.ViewModel()
-        viewController?.displayCharacter(viewModel: response)
+    weak var viewController: DetailScreenDisplayLogic?
+    
+    // MARK: Do something
+    
+    func presentCharacter(response: DetailScreen.SelectedCharacter.Response) {
+        let viewModel = DetailScreen.SelectedCharacter.ViewModel(name: response.name, thumbnailResource: response.thumbnailResource, description: response.description)
+        viewController?.displayCharacter(viewModel: viewModel)
+    }
+    
+    func presentComicCollection(request: DetailScreen.CollectionSettings.Response) {
+        let viewModel = DetailScreen.CollectionSettings.ViewModel(dataSource: request.dataSource, delegate: request.delegate)
+        viewController?.setupComicCollection(viewModel: viewModel)
+    }
+    func presentSerieCollection(request: DetailScreen.CollectionSettings.Response) {
+        let viewModel = DetailScreen.CollectionSettings.ViewModel(dataSource: request.dataSource, delegate: request.delegate)
+        viewController?.setupSerieCollection(viewModel: viewModel)
+    }
+    func presentEventCollection(request: DetailScreen.CollectionSettings.Response) {
+        let viewModel = DetailScreen.CollectionSettings.ViewModel(dataSource: request.dataSource, delegate: request.delegate)
+        viewController?.setupEventCollection(viewModel: viewModel)
     }
 }

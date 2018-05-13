@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 enum DetailScreen
 {
@@ -23,9 +24,32 @@ enum DetailScreen
         }
         struct Response
         {
+            var name: String
+            var thumbnailResource: ImageResource
+            var description: String
         }
         struct ViewModel
         {
+            var name: String
+            var thumbnailResource: ImageResource
+            var description: String?
+        }
+    }
+    
+    enum CollectionSettings{
+        struct Request
+        {
+            var items: [Item]?
+        }
+        struct Response
+        {
+            var dataSource: ResourceCollectionDataSource
+            var delegate: ResourceCollectionDelegate
+        }
+        struct ViewModel
+        {
+            var dataSource: ResourceCollectionDataSource
+            var delegate: ResourceCollectionDelegate
         }
     }
 }

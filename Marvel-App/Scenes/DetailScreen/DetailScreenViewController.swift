@@ -16,13 +16,16 @@ import Kingfisher
 protocol DetailScreenDisplayLogic: class
 {
     func displayCharacter(viewModel: DetailScreen.SelectedCharacter.ViewModel)
+    func setupComicCollection(viewModel: DetailScreen.CollectionSettings.ViewModel)
+    func setupSerieCollection(viewModel: DetailScreen.CollectionSettings.ViewModel)
+    func setupEventCollection(viewModel: DetailScreen.CollectionSettings.ViewModel)
 }
 
 class DetailScreenViewController: UITableViewController, DetailScreenDisplayLogic
 {
     var interactor: DetailScreenBusinessLogic?
     var router: (NSObjectProtocol & DetailScreenRoutingLogic & DetailScreenDataPassing)?
-//    var selectedCharacter: Character! {get set}
+    var selectedCharacter: Character!
     
     @IBOutlet weak var topImage: UIImageView!
     @IBOutlet weak var heroeName: UILabel!
@@ -30,12 +33,9 @@ class DetailScreenViewController: UITableViewController, DetailScreenDisplayLogi
     
     @IBOutlet weak var comicCollection: UICollectionView!
     @IBOutlet weak var serieCollection: UICollectionView!
-    @IBOutlet weak var storyCollection: UICollectionView!
     @IBOutlet weak var eventCollection: UICollectionView!
     
     @IBOutlet var collectionOfViews: Array<UITableViewCell>?
-    
-    @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var descriptionCell: UITableViewCell!
     
     var comicDataSource: ResourceCollectionDataSource?
@@ -43,9 +43,6 @@ class DetailScreenViewController: UITableViewController, DetailScreenDisplayLogi
     
     var serieDataSource: ResourceCollectionDataSource?
     weak public var serieDelegate: ResourceCollectionDelegate?
-    
-    var storyDataSource: ResourceCollectionDataSource?
-    weak public var storyDelegate: ResourceCollectionDelegate?
     
     var eventDataSource: ResourceCollectionDataSource?
     weak public var eventDelegate: ResourceCollectionDelegate?
@@ -97,61 +94,50 @@ class DetailScreenViewController: UITableViewController, DetailScreenDisplayLogi
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        doSomething()
+        setupNavigationBar()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44
         setupCollections()
-    }
-    
-    func doSomething()
-    {
-        self.title = interactor?.selectedCharacter.name
-        guard let thumbnail = interactor?.selectedCharacter.thumbnail else { return }
-        guard let url = APIClient.getImageURL(downloadURL: thumbnail.path, extension: thumbnail.thumbnailExtension) else { return }
-        let resource = ImageResource(downloadURL: url)
-        self.topImage.kf.setImage(with: resource)
-        self.heroeName.text = interactor?.selectedCharacter.name
-        self.heroeDescription.text = interactor?.selectedCharacter.description
+        interactor?.requestCharacterData(request: DetailScreen.SelectedCharacter.Request(char: selectedCharacter))
     }
     
     private func setupCollections(){
-        setupComicCollection()
-        setupSerieCollection()
-        setupStoryCollection()
-        setupEventCollection()
+        interactor?.requestComicCollection(request: DetailScreen.CollectionSettings.Request(items: selectedCharacter.comics?.items))
+        interactor?.requestSerieCollection(request: DetailScreen.CollectionSettings.Request(items: selectedCharacter.series?.items))
+        interactor?.requestEventCollection(request: DetailScreen.CollectionSettings.Request(items: selectedCharacter.events?.items))
     }
     
     func setupNavigationBar(){
         self.navigationController?.view.backgroundColor = UIColor(red: 0.918, green: 0.133, blue: 0.180, alpha: 1.00)
     }
     
-    func setupComicCollection(){
-        comicDataSource = ResourceCollectionDataSource()
-        comicDataSource!.resourceData = interactor?.selectedCharacter.comics?.items
-        comicCollection.dataSource = comicDataSource
-        comicCollection.delegate = ResourceCollectionDelegate()
-    }
-    
-    func setupSerieCollection(){
-        serieDataSource = ResourceCollectionDataSource()
-        serieDataSource!.resourceData = interactor?.selectedCharacter.series?.items
-        serieCollection.dataSource = serieDataSource
-        serieCollection.delegate = ResourceCollectionDelegate()
-    }
-    
-    func setupStoryCollection(){
-        storyDataSource = ResourceCollectionDataSource()
-        storyDataSource!.resourceData = interactor?.selectedCharacter.stories?.items
-        storyCollection.dataSource = storyDataSource
-        storyCollection.delegate = ResourceCollectionDelegate()
-    }
-    
-    func setupEventCollection(){
-        eventDataSource = ResourceCollectionDataSource()
-        eventDataSource!.resourceData = interactor?.selectedCharacter.events?.items
-        eventCollection.dataSource = eventDataSource
-        eventCollection.delegate = ResourceCollectionDelegate()
-    }
-    
     func displayCharacter(viewModel: DetailScreen.SelectedCharacter.ViewModel){
-        doSomething()
+        self.title = viewModel.name
+        self.topImage.kf.setImage(with: viewModel.thumbnailResource)
+        self.heroeName.text = viewModel.name
+        if let _ = viewModel.description?.isEmpty {
+            self.heroeDescription.text = "No description"
+            descriptionCell.layer.bounds.size = CGSize(width: descriptionCell.layer.bounds.width, height: 50)
+        } else {
+            self.heroeDescription.text = viewModel.description
+        }
+    }
+    
+    func setupComicCollection(viewModel: DetailScreen.CollectionSettings.ViewModel) {
+        comicCollection.delegate = viewModel.delegate
+        comicDataSource = viewModel.dataSource
+        comicCollection.dataSource = comicDataSource
+    }
+    
+    func setupSerieCollection(viewModel: DetailScreen.CollectionSettings.ViewModel) {
+        serieDataSource = viewModel.dataSource
+        serieCollection.dataSource = viewModel.dataSource
+        serieCollection.delegate = viewModel.delegate
+    }
+    
+    func setupEventCollection(viewModel: DetailScreen.CollectionSettings.ViewModel) {
+        eventCollection.delegate = viewModel.delegate
+        eventDataSource = viewModel.dataSource
+        eventCollection.dataSource = eventDataSource
     }
 }

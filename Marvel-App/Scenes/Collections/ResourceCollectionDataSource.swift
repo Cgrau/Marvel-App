@@ -13,11 +13,7 @@ let cellNibName = "ResourceCollectionViewCell"
 
 class ResourceCollectionDataSource: NSObject, UICollectionViewDataSource {
     
-    var resourceData: [Item]! /*{
-     //        willSet{
-     //            newValue.compactMap{$0}.filter{$0.thumbnail == nil}
-     //        }
-     //    }*/
+    var resourceData: [Item]!
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

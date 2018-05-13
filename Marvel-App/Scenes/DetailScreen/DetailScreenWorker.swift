@@ -14,7 +14,10 @@ import UIKit
 
 class DetailScreenWorker
 {
-  func doSomeWork()
-  {
-  }
+    func getCollectionSetupResponse(items: [Item]?) -> DetailScreen.CollectionSettings.Response {
+        let dataSource = ResourceCollectionDataSource()
+        dataSource.resourceData = items?.filter{!$0.resourceURI.contains("image_not_available")}
+        let delegate = ResourceCollectionDelegate()
+        return DetailScreen.CollectionSettings.Response(dataSource: dataSource, delegate: delegate)
+    }
 }

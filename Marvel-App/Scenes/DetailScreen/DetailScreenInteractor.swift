@@ -11,29 +11,45 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol DetailScreenBusinessLogic
 {
-    var selectedCharacter: Character! {get set}
-    func presentCharacter(response: DetailScreen.SelectedCharacter.Response)
+    func requestCharacterData(request: DetailScreen.SelectedCharacter.Request)
+    func requestComicCollection(request: DetailScreen.CollectionSettings.Request)
+    func requestSerieCollection(request: DetailScreen.CollectionSettings.Request)
+    func requestEventCollection(request: DetailScreen.CollectionSettings.Request)
 }
 
 protocol DetailScreenDataStore
 {
-  var selectedCharacter: Character! {get set}
+    var selectedCharacter: Character! {get set}
 }
 
 class DetailScreenInteractor: DetailScreenBusinessLogic, DetailScreenDataStore
 {
-  var presenter: DetailScreenPresentationLogic?
-  var worker: DetailScreenWorker?
-  var selectedCharacter: Character!
-  
-  // MARK: Do something
-  
-  func presentCharacter(response: DetailScreen.SelectedCharacter.Response)
-  {
-    let response = DetailScreen.SelectedCharacter.Response()
-    presenter?.presentCharacter(response: response)
-  }
+    var presenter: DetailScreenPresentationLogic?
+    private lazy var worker: DetailScreenWorker = {
+        return DetailScreenWorker()
+    }()
+    var selectedCharacter: Character!
+    
+    func requestCharacterData(request: DetailScreen.SelectedCharacter.Request) {
+        selectedCharacter = request.char
+        guard let thumbnail = request.char.thumbnail else { return }
+        guard let url = APIClient.getImageURL(downloadURL: thumbnail.path, extension: thumbnail.thumbnailExtension) else { return }
+        let resource = ImageResource(downloadURL: url)
+        let response = DetailScreen.SelectedCharacter.Response(name: request.char.name, thumbnailResource: resource, description: request.char.description)
+        presenter?.presentCharacter(response: response)
+    }
+    
+    func requestComicCollection(request: DetailScreen.CollectionSettings.Request) {
+        presenter?.presentComicCollection(request: worker.getCollectionSetupResponse(items: request.items))
+    }
+    func requestSerieCollection(request: DetailScreen.CollectionSettings.Request) {
+        presenter?.presentSerieCollection(request: worker.getCollectionSetupResponse(items: request.items))
+    }
+    func requestEventCollection(request: DetailScreen.CollectionSettings.Request) {
+        presenter?.presentEventCollection(request: worker.getCollectionSetupResponse(items: request.items))
+    }
 }

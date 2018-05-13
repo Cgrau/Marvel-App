@@ -54,7 +54,7 @@ class MainScreenRouter: NSObject, MainScreenRoutingLogic, MainScreenDataPassing
         if let selectedIndexPath = viewController?.table.indexPathForSelectedRow {
             if let selectedCharacter = dataStore?.characters![selectedIndexPath.row] {
                 let detailViewController: DetailScreenViewController = UIStoryboard(storyboard: .Main).instantiateViewController()
-                detailViewController.interactor?.selectedCharacter = selectedCharacter
+                detailViewController.selectedCharacter = selectedCharacter
                 viewController?.navigationController?.pushViewController(detailViewController, animated: true)
             }
         }
