@@ -108,7 +108,7 @@ class DetailScreenViewController: UITableViewController, DetailScreenDisplayLogi
         self.title = viewModel.name
         self.topImage.kf.setImage(with: viewModel.thumbnailResource)
         self.heroeName.text = viewModel.name
-        if let _ = viewModel.description?.isEmpty {
+        if viewModel.description == "" {
             self.heroeDescription.text = "No description"
             descriptionCell.layer.bounds.size = CGSize(width: descriptionCell.layer.bounds.width, height: 50)
         } else {
