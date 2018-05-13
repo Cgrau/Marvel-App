@@ -105,8 +105,16 @@ extension MainScreenViewController: UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let request = MainScreen.FetchItems.Request(searchString: searchBar.text!.trimmingCharacters(in: .whitespaces))
+        let searchText = searchBar.text!.trimmingCharacters(in: .whitespaces)
+        guard let _ = searchBar.text, searchText.count > 0 else {
+            noResultsView.show()
+            searchBar.text = ""
+            dismissKeyboard()
+            return
+        }
+        noResultsView.hide()
         actInd.startAnimating()
+        let request = MainScreen.FetchItems.Request(searchString: searchText)
         interactor?.search(request: request)
         dismissKeyboard()
     }
