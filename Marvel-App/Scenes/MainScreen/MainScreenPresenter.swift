@@ -10,18 +10,20 @@ import UIKit
 
 protocol MainScreenPresentationLogic
 {
-  func presentSearchResults(response: MainScreen.FetchItems.Response)
+    func presentSearchResults(response: MainScreen.FetchItems.Response)
 }
 
 class MainScreenPresenter: MainScreenPresentationLogic
 {
-  weak var viewController: MainScreenDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentSearchResults(response: MainScreen.FetchItems.Response)
-  {
-    let viewModel = MainScreen.FetchItems.ViewModel(displayedItems: response.characters)
-    viewController?.displayFetchedItems(viewModel: viewModel)
-  }
+    weak var viewController: MainScreenDisplayLogic?
+    
+    /// MainScreenPresenter present characters to MainScreenViewController.
+    ///
+    /// - Parameters:
+    ///   - response: FetchItems Response containing an array of characters.
+    func presentSearchResults(response: MainScreen.FetchItems.Response)
+    {
+        let viewModel = MainScreen.FetchItems.ViewModel(displayedItems: response.characters)
+        viewController?.displayFetchedItems(viewModel: viewModel)
+    }
 }

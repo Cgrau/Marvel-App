@@ -16,7 +16,6 @@ import Kingfisher
 enum DetailScreen
 {
     // MARK: Use cases
-    
     enum SelectedCharacter{
         struct Request
         {

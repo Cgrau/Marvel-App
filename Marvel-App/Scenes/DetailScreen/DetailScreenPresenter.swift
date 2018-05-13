@@ -24,21 +24,37 @@ class DetailScreenPresenter: DetailScreenPresentationLogic
 {
     weak var viewController: DetailScreenDisplayLogic?
     
-    // MARK: Do something
-    
+    /// Present Character to ViewController just passing what it needs
+    ///
+    /// - Parameters:
+    ///   - response: SelectedCharacter.Response contains name(String), thumbnailResource(ImageResource) and description(String)
     func presentCharacter(response: DetailScreen.SelectedCharacter.Response) {
         let viewModel = DetailScreen.SelectedCharacter.ViewModel(name: response.name, thumbnailResource: response.thumbnailResource, description: response.description)
         viewController?.displayCharacter(viewModel: viewModel)
     }
     
+    /// Pass Comics delegate and datasource to ViewController
+    ///
+    /// - Parameters:
+    ///   - request: Response(dataSource:ResourceCollectionDataSource, delegate:ResourceCollectionDelegate)
     func presentComicCollection(request: DetailScreen.CollectionSettings.Response) {
         let viewModel = DetailScreen.CollectionSettings.ViewModel(dataSource: request.dataSource, delegate: request.delegate)
         viewController?.setupComicCollection(viewModel: viewModel)
     }
+    
+    /// Pass Series delegate and datasource to ViewController
+    ///
+    /// - Parameters:
+    ///   - request: Response(dataSource:ResourceCollectionDataSource, delegate:ResourceCollectionDelegate)
     func presentSerieCollection(request: DetailScreen.CollectionSettings.Response) {
         let viewModel = DetailScreen.CollectionSettings.ViewModel(dataSource: request.dataSource, delegate: request.delegate)
         viewController?.setupSerieCollection(viewModel: viewModel)
     }
+    
+    /// Pass Events delegate and datasource to ViewController
+    ///
+    /// - Parameters:
+    ///   - request: Response(dataSource:ResourceCollectionDataSource, delegate:ResourceCollectionDelegate)
     func presentEventCollection(request: DetailScreen.CollectionSettings.Response) {
         let viewModel = DetailScreen.CollectionSettings.ViewModel(dataSource: request.dataSource, delegate: request.delegate)
         viewController?.setupEventCollection(viewModel: viewModel)

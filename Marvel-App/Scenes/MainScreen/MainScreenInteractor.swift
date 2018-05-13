@@ -21,6 +21,10 @@ class MainScreenInteractor: MainScreenBusinessLogic, MainScreenDataStore {
     var worker: MainScreenWorker?
     var characters: [Character]?
     
+    /// Uses worker to get Characters from MainScreenWorkes(search:) and pass data to presenter
+    ///
+    /// - Parameters:
+    ///   - string: Search Characters starting by this parameter
     func search(request: MainScreen.FetchItems.Request) {
         worker = MainScreenWorker()
         worker?.search(string: request.searchString, completion: { (results, error) in

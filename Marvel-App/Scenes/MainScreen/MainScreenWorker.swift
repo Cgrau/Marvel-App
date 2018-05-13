@@ -17,21 +17,13 @@ class MainScreenWorker
     
     private let apiClient = APIClient()
     
-    // MARK: - Business Logic
-    func doSomeWork()
-    {
-        // NOTE: Do the work
-    }
-    
-    func search(parameters: Array<String>, completionHandler: (()->Void)){
-        
-    }
-    
-    /// Worker will get Characters starting by searchString pushed. This view is normally presented with details of first request to API.
+    /// Worker will get Characters starting by searchString and will call APIClient to request to Marvel API.
     ///
     /// - Parameters:
-    ///   - view: Context which will be pushed.
-    ///   - model: Data model for the context that will be pushed.
+    ///   - string: Search Characters starting by this parameter
+    /// - Completion:
+    ///   - entity: An array of characters
+    ///   - error: -
     func search(string: String, completion: @escaping (_ entity: [Character]?, _ error: Error?)->Void) {
         apiClient.search(string: string) { (characters, error) in
             if let error = error {
@@ -42,6 +34,13 @@ class MainScreenWorker
         }
     }
     
+    /// Request to get Comic data.
+    ///
+    /// - Parameters:
+    ///   - url: ComicURI
+    /// - Completion:
+    ///   - entity: Comic thumbnail URL with extension
+    ///   - error: -
     func getComicThumbnailData(url: String, completion: @escaping (_ entity: String?, _ error: Error?)->Void){
         apiClient.getComicThumbnailData(url: url) { (imageURL, error) in
             if let error = error {
