@@ -13,40 +13,33 @@
 import UIKit
 import Kingfisher
 
-enum DetailScreen
-{
+enum DetailScreen {
     // MARK: Use cases
-    enum SelectedCharacter{
-        struct Request
-        {
+    enum SelectedCharacter {
+        struct Request {
             var char: Character
         }
-        struct Response
-        {
+        struct Response {
             var name: String
             var thumbnailResource: ImageResource
             var description: String
         }
-        struct ViewModel
-        {
+        struct ViewModel {
             var name: String
             var thumbnailResource: ImageResource
             var description: String?
         }
     }
-    
-    enum CollectionSettings{
-        struct Request
-        {
+
+    enum CollectionSettings {
+        struct Request {
             var items: [Item]?
         }
-        struct Response
-        {
+        struct Response {
             var dataSource: ResourceCollectionDataSource
             var delegate: ResourceCollectionDelegate
         }
-        struct ViewModel
-        {
+        struct ViewModel {
             var dataSource: ResourceCollectionDataSource
             var delegate: ResourceCollectionDelegate
         }

@@ -26,7 +26,7 @@ struct Comic: Decodable {
     let characters: Characters?
     let stories: Stories?
     let events: Characters?
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case digitalID = "digitalId"

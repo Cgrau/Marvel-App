@@ -13,44 +13,39 @@
 @testable import Marvel_App
 import XCTest
 
-class DetailScreenWorkerTests: XCTestCase
-{
+class DetailScreenWorkerTests: XCTestCase {
   // MARK: Subject under test
-  
+
   var sut: DetailScreenWorker!
-  
+
   // MARK: Test lifecycle
-  
-  override func setUp()
-  {
+
+  override func setUp() {
     super.setUp()
     setupDetailScreenWorker()
   }
-  
-  override func tearDown()
-  {
+
+  override func tearDown() {
     super.tearDown()
   }
-  
+
   // MARK: Test setup
-  
-  func setupDetailScreenWorker()
-  {
+
+  func setupDetailScreenWorker() {
     sut = DetailScreenWorker()
   }
-  
+
   // MARK: Test doubles
-  
+
   // MARK: Tests
-  
-  func testGetCollectionData()
-  {
+
+  func testGetCollectionData() {
     // Given
     let items = Mock.ResourceMock().res.items
-    
+
     // When
     let data = sut.getCollectionSetupResponse(items: items)
-    
+
     // Then
     XCTAssertNotNil(data)
     XCTAssertNotNil(data.dataSource)

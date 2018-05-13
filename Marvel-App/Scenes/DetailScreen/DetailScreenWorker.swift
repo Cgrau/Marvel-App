@@ -12,8 +12,7 @@
 
 import UIKit
 
-class DetailScreenWorker
-{
+class DetailScreenWorker {
     /// Get **Response** containing **Delegate** and **DataSource** configured with an array of **Item**
     ///
     /// - Parameters:
@@ -22,7 +21,7 @@ class DetailScreenWorker
     ///     Response(dataSource:*ResourceCollectionDataSource*, delegate:*ResourceCollectionDelegate*)
     func getCollectionSetupResponse(items: [Item]?) -> DetailScreen.CollectionSettings.Response {
         let dataSource = ResourceCollectionDataSource()
-        dataSource.resourceData = items?.filter{!$0.resourceURI.contains("image_not_available")}
+        dataSource.resourceData = items?.filter {!$0.resourceURI.contains("image_not_available")}
         let delegate = ResourceCollectionDelegate()
         return DetailScreen.CollectionSettings.Response(dataSource: dataSource, delegate: delegate)
     }

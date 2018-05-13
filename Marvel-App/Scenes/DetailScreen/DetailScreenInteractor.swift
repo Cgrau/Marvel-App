@@ -13,27 +13,24 @@
 import UIKit
 import Kingfisher
 
-protocol DetailScreenBusinessLogic
-{
+protocol DetailScreenBusinessLogic {
     func requestCharacterData(request: DetailScreen.SelectedCharacter.Request)
     func requestComicCollection(request: DetailScreen.CollectionSettings.Request)
     func requestSerieCollection(request: DetailScreen.CollectionSettings.Request)
     func requestEventCollection(request: DetailScreen.CollectionSettings.Request)
 }
 
-protocol DetailScreenDataStore
-{
+protocol DetailScreenDataStore {
     var selectedCharacter: Character! {get set}
 }
 
-class DetailScreenInteractor: DetailScreenBusinessLogic, DetailScreenDataStore
-{
+class DetailScreenInteractor: DetailScreenBusinessLogic, DetailScreenDataStore {
     var presenter: DetailScreenPresentationLogic?
     private lazy var worker: DetailScreenWorker = {
         return DetailScreenWorker()
     }()
     var selectedCharacter: Character!
-    
+
     func requestCharacterData(request: DetailScreen.SelectedCharacter.Request) {
         selectedCharacter = request.char
         guard let thumbnail = request.char.thumbnail else { return }
@@ -42,7 +39,7 @@ class DetailScreenInteractor: DetailScreenBusinessLogic, DetailScreenDataStore
         let response = DetailScreen.SelectedCharacter.Response(name: request.char.name, thumbnailResource: resource, description: request.char.description)
         presenter?.presentCharacter(response: response)
     }
-    
+
     func requestComicCollection(request: DetailScreen.CollectionSettings.Request) {
         guard let items = request.items else { return }
         presenter?.presentComicCollection(request: worker.getCollectionSetupResponse(items: items))

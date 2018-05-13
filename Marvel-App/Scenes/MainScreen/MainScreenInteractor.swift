@@ -20,7 +20,7 @@ class MainScreenInteractor: MainScreenBusinessLogic, MainScreenDataStore {
     var presenter: MainScreenPresentationLogic?
     var worker: MainScreenWorker?
     var characters: [Character]?
-    
+
     /// Uses worker to get Characters from MainScreenWorkes(search:) and pass data to presenter
     ///
     /// - Parameters:

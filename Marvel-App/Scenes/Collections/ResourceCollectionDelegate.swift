@@ -8,6 +8,6 @@
 
 import UIKit
 
-class ResourceCollectionDelegate : NSObject, UICollectionViewDelegate {
+class ResourceCollectionDelegate: NSObject, UICollectionViewDelegate {
     //custom code here if required
 }

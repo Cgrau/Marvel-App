@@ -13,65 +13,58 @@
 @testable import Marvel_App
 import XCTest
 
-class MainScreenViewControllerTests: XCTestCase
-{
+class MainScreenViewControllerTests: XCTestCase {
     // MARK: Subject under test
-    
+
     var sut: MainScreenViewController!
     var window: UIWindow!
-    
+
     // MARK: Test lifecycle
-    
-    override func setUp()
-    {
+
+    override func setUp() {
         super.setUp()
         window = UIWindow()
         setupMainScreenViewController()
     }
-    
-    override func tearDown()
-    {
+
+    override func tearDown() {
         window = nil
         super.tearDown()
     }
-    
+
     // MARK: Test setup
-    
-    func setupMainScreenViewController()
-    {
+
+    func setupMainScreenViewController() {
         let bundle = Bundle.main
         let storyboard = UIStoryboard(name: "Main", bundle: bundle)
         sut = storyboard.instantiateViewController(withIdentifier: "MainScreenViewController") as! MainScreenViewController
     }
-    
-    func loadView()
-    {
+
+    func loadView() {
         window.addSubview(sut.view)
         RunLoop.current.run(until: Date())
     }
-    
+
     // MARK: Test doubles
-    
-    class MainScreenBusinessLogicSpy: MainScreenBusinessLogic
-    {
+
+    class MainScreenBusinessLogicSpy: MainScreenBusinessLogic {
         var searchCalled = false
         func search(request: MainScreen.FetchItems.Request) {
             searchCalled = true
         }
     }
-    
+
     // MARK: Tests
-    
-    func testDisplayCharacter()
-    {
+
+    func testDisplayCharacter() {
         // Given
         let char = Mock.CharacterMock().venom
         let viewModel = MainScreen.FetchItems.ViewModel(displayedItems: [char])
-        
+
         // When
         loadView()
         sut.displayFetchedItems(viewModel: viewModel)
-        
+
         // Then
         XCTAssertEqual(sut.tableDataSource?.data.count, 1, "searchCharacter(viewModel:) should update tableDataSource with Venom character")
         XCTAssertEqual(sut.tableDataSource?.data[0].id, char.id, "TableDataSource should have Venom in the first place")

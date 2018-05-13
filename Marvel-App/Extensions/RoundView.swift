@@ -12,7 +12,7 @@ import UIKit
 @IBDesignable
 class RoundBorderView: UIView {
     @IBInspectable var borderColor: UIColor = .clear {
-        didSet{
+        didSet {
             setUpBorderColor()
         }
     }
@@ -35,19 +35,19 @@ class RoundBorderView: UIView {
         self.layer.cornerRadius = self.cornerRadiusValue
         self.clipsToBounds = true
     }
-    
-    func setUpBorderColor(){
+
+    func setUpBorderColor() {
         self.layer.cornerRadius = 5
         self.layer.borderWidth = 1
         self.layer.borderColor = self.borderColor.cgColor
     }
-    
-    func hide(){
+
+    func hide() {
         UIView.animate(withDuration: 1) {
             self.isHidden = true
         }
     }
-    func show(){
+    func show() {
         UIView.animate(withDuration: 1) {
             self.isHidden = false
         }

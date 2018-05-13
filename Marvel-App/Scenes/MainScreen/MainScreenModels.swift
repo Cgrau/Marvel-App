@@ -8,20 +8,15 @@
 
 import UIKit
 
-enum MainScreen
-{
-    enum FetchItems
-    {
-        struct Request
-        {
+enum MainScreen {
+    enum FetchItems {
+        struct Request {
             var searchString: String
         }
-        struct Response
-        {
+        struct Response {
             var characters: [Character]
         }
-        struct ViewModel
-        {
+        struct ViewModel {
             var displayedItems: [Character]
         }
     }

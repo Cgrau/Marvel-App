@@ -13,53 +13,47 @@
 @testable import Marvel_App
 import XCTest
 
-class DetailScreenViewControllerTests: XCTestCase
-{
+class DetailScreenViewControllerTests: XCTestCase {
   // MARK: Subject under test
-  
+
   var sut: DetailScreenViewController!
   var window: UIWindow!
-  
+
   // MARK: Test lifecycle
-  
-  override func setUp()
-  {
+
+  override func setUp() {
     super.setUp()
     window = UIWindow()
     setupDetailScreenViewController()
   }
-  
-  override func tearDown()
-  {
+
+  override func tearDown() {
     window = nil
     super.tearDown()
   }
-  
+
   // MARK: Test setup
-  
-  func setupDetailScreenViewController()
-  {
+
+  func setupDetailScreenViewController() {
     let bundle = Bundle.main
     let storyboard = UIStoryboard(name: "Main", bundle: bundle)
     sut = storyboard.instantiateViewController(withIdentifier: "DetailScreenViewController") as! DetailScreenViewController
   }
-  
-  func loadView()
-  {
+
+  func loadView() {
     sut.selectedCharacter = Mock.CharacterMock().venom
     window.addSubview(sut.view)
     RunLoop.current.run(until: Date())
   }
-  
+
   // MARK: Test doubles
-  
-  class DetailScreenBusinessLogicSpy: DetailScreenBusinessLogic
-  {
+
+  class DetailScreenBusinessLogicSpy: DetailScreenBusinessLogic {
     var requestCharDataCalled = false
     var requestComicSetupCalled = false
     var requestSerieSetupCalled = false
     var requestEventSetupCalled = false
-    
+
     func requestCharacterData(request: DetailScreen.SelectedCharacter.Request) {
         requestCharDataCalled = true
     }
@@ -73,33 +67,31 @@ class DetailScreenViewControllerTests: XCTestCase
         requestEventSetupCalled = true
     }
   }
-  
+
   // MARK: Tests
-  
-  func testShouldRequestCharacterDataWhenViewIsLoaded()
-  {
+
+  func testShouldRequestCharacterDataWhenViewIsLoaded() {
     // Given
     let spy = DetailScreenBusinessLogicSpy()
     sut.interactor = spy
-    
+
     // When
     loadView()
-    
+
     // Then
     XCTAssertTrue(spy.requestCharDataCalled, "viewDidLoad() should ask the interactor to do something")
   }
-  
-  func testDisplayCharacter()
-  {
+
+  func testDisplayCharacter() {
     // Given
     let mock = Mock.CharacterMock()
     let venom = mock.venom
     let viewModel = DetailScreen.SelectedCharacter.ViewModel(name: venom.name, thumbnailResource: mock.imageResource, description: venom.description)
-    
+
     // When
     loadView()
     sut.displayCharacter(viewModel: viewModel)
-    
+
     // Then
     XCTAssertEqual(sut.heroeName.text, venom.name, "displaySomething(viewModel:) should update the name text field")
   }

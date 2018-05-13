@@ -12,18 +12,16 @@
 
 import UIKit
 
-protocol DetailScreenPresentationLogic
-{
+protocol DetailScreenPresentationLogic {
     func presentCharacter(response: DetailScreen.SelectedCharacter.Response)
     func presentComicCollection(request: DetailScreen.CollectionSettings.Response)
     func presentSerieCollection(request: DetailScreen.CollectionSettings.Response)
     func presentEventCollection(request: DetailScreen.CollectionSettings.Response)
 }
 
-class DetailScreenPresenter: DetailScreenPresentationLogic
-{
+class DetailScreenPresenter: DetailScreenPresentationLogic {
     weak var viewController: DetailScreenDisplayLogic?
-    
+
     /// Present Character to ViewController just passing what it needs
     ///
     /// - Parameters:
@@ -32,7 +30,7 @@ class DetailScreenPresenter: DetailScreenPresentationLogic
         let viewModel = DetailScreen.SelectedCharacter.ViewModel(name: response.name, thumbnailResource: response.thumbnailResource, description: response.description)
         viewController?.displayCharacter(viewModel: viewModel)
     }
-    
+
     /// Pass Comics delegate and datasource to ViewController
     ///
     /// - Parameters:
@@ -41,7 +39,7 @@ class DetailScreenPresenter: DetailScreenPresentationLogic
         let viewModel = DetailScreen.CollectionSettings.ViewModel(dataSource: request.dataSource, delegate: request.delegate)
         viewController?.setupComicCollection(viewModel: viewModel)
     }
-    
+
     /// Pass Series delegate and datasource to ViewController
     ///
     /// - Parameters:
@@ -50,7 +48,7 @@ class DetailScreenPresenter: DetailScreenPresentationLogic
         let viewModel = DetailScreen.CollectionSettings.ViewModel(dataSource: request.dataSource, delegate: request.delegate)
         viewController?.setupSerieCollection(viewModel: viewModel)
     }
-    
+
     /// Pass Events delegate and datasource to ViewController
     ///
     /// - Parameters:

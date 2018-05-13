@@ -12,23 +12,20 @@
 
 import UIKit
 
-@objc protocol DetailScreenRoutingLogic
-{
+@objc protocol DetailScreenRoutingLogic {
   //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol DetailScreenDataPassing
-{
+protocol DetailScreenDataPassing {
   var dataStore: DetailScreenDataStore? { get }
 }
 
-class DetailScreenRouter: NSObject, DetailScreenRoutingLogic, DetailScreenDataPassing
-{
+class DetailScreenRouter: NSObject, DetailScreenRoutingLogic, DetailScreenDataPassing {
   weak var viewController: DetailScreenViewController?
   var dataStore: DetailScreenDataStore?
-  
+
   // MARK: Routing
-  
+
   //func routeToSomewhere(segue: UIStoryboardSegue?)
   //{
   //  if let segue = segue {
@@ -45,14 +42,14 @@ class DetailScreenRouter: NSObject, DetailScreenRoutingLogic, DetailScreenDataPa
   //}
 
   // MARK: Navigation
-  
+
   //func navigateToSomewhere(source: DetailScreenViewController, destination: SomewhereViewController)
   //{
   //  source.show(destination, sender: nil)
   //}
-  
+
   // MARK: Passing data
-  
+
   //func passDataToSomewhere(source: DetailScreenDataStore, destination: inout SomewhereDataStore)
   //{
   //  destination.name = source.name

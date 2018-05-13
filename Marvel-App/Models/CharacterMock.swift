@@ -9,7 +9,6 @@
 import Foundation
 import Kingfisher
 
-
 enum Mock {
     struct CharacterMock {
         var venom: Character {
@@ -26,7 +25,7 @@ enum Mock {
             return imageR
         }
     }
-    
+
     struct ResourceMock {
         var res: Resources {
             var resource = Resources()
@@ -40,7 +39,7 @@ enum Mock {
             item1.name = "Amazing Spider-Man (1999) #574"
             item1.resourceURI = "http://gateway.marvel.com/v1/public/comics/22262"
             item1.thumbnail = nil
-            
+
             var item2 = Item()
             item2.name = "Amazing Spider-Man (1999) #622"
             item2.resourceURI = "http://gateway.marvel.com/v1/public/comics/28227"

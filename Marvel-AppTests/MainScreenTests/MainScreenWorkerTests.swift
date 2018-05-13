@@ -13,70 +13,66 @@
 @testable import Marvel_App
 import XCTest
 
-class MainScreenWorkerTests: XCTestCase
-{
+class MainScreenWorkerTests: XCTestCase {
     // MARK: Subject under test
-    
+
     var sut: MainScreenWorker!
-    
+
     // MARK: Test lifecycle
-    
-    override func setUp()
-    {
+
+    override func setUp() {
         super.setUp()
         setupMainScreenWorker()
     }
-    
-    override func tearDown()
-    {
+
+    override func tearDown() {
         super.tearDown()
     }
-    
+
     // MARK: Test setup
-    
-    func setupMainScreenWorker()
-    {
+
+    func setupMainScreenWorker() {
         sut = MainScreenWorker()
     }
-    
+
     // MARK: Test doubles
-    
+
     // MARK: Tests
     func testSearch() {
         // Given
         let exp = expectation(description: "Parsing ComicThumbnail")
-        
+
         // When
-        sut.search(string: "Venom") { (response, error) in
+        sut.search(string: "Venom") { (_, error) in
             if error == nil {
                 exp.fulfill()
             } else {
                 XCTFail("error is not nil.")
             }
         }
-        
+
         // Then
-        waitForExpectations(timeout: 1.0) { (responseURL) -> Void in
+        waitForExpectations(timeout: 1.0) { (_) -> Void in
             print("response")
         }
     }
-    
+
     func testGetComicThumbnail() {
         // Given
         let exp = expectation(description: "Parsing ComicThumbnail")
         let venom = Mock.CharacterMock().venom
-        
+
         // When
-        sut.getComicThumbnailData(url: venom.resourceURI) { (responseURL, error) in
+        sut.getComicThumbnailData(url: venom.resourceURI) { (_, error) in
             if error == nil {
                 exp.fulfill()
             } else {
                 XCTFail("error is not nil.")
             }
         }
-        
+
         // Then
-        waitForExpectations(timeout: 1.0) { (responseURL) -> Void in
+        waitForExpectations(timeout: 1.0) { (_) -> Void in
             print("response")
         }
     }

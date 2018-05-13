@@ -13,36 +13,31 @@
 @testable import Marvel_App
 import XCTest
 
-class DetailScreenInteractorTests: XCTestCase
-{
+class DetailScreenInteractorTests: XCTestCase {
   // MARK: Subject under test
-  
+
   var sut: DetailScreenInteractor!
-  
+
   // MARK: Test lifecycle
-  
-  override func setUp()
-  {
+
+  override func setUp() {
     super.setUp()
     setupDetailScreenInteractor()
   }
-  
-  override func tearDown()
-  {
+
+  override func tearDown() {
     super.tearDown()
   }
-  
+
   // MARK: Test setup
-  
-  func setupDetailScreenInteractor()
-  {
+
+  func setupDetailScreenInteractor() {
     sut = DetailScreenInteractor()
   }
-  
+
   // MARK: Test doubles
-  
-  class DetailScreenPresentationLogicSpy: DetailScreenPresentationLogic
-  {
+
+  class DetailScreenPresentationLogicSpy: DetailScreenPresentationLogic {
     var presentCharacterCalled = false
     var presentComicSetupCalled = false
     var presentSerieSetupCalled = false
@@ -60,20 +55,19 @@ class DetailScreenInteractorTests: XCTestCase
         presentEventSetupCalled = true
     }
   }
-  
+
   // MARK: Tests
-  
-  func testRequestCharacter()
-  {
+
+  func testRequestCharacter() {
     // Given
     let venom = Mock.CharacterMock().venom
     let spy = DetailScreenPresentationLogicSpy()
     sut.presenter = spy
     let request = DetailScreen.SelectedCharacter.Request(char: venom)
-    
+
     // When
     sut.requestCharacterData(request: request)
-    
+
     // Then
     XCTAssertTrue(spy.presentCharacterCalled, "doSomething(request:) should ask the presenter to format the result")
   }

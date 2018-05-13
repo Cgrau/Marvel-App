@@ -13,41 +13,36 @@
 @testable import Marvel_App
 import XCTest
 
-class MainScreenInteractorTests: XCTestCase
-{
+class MainScreenInteractorTests: XCTestCase {
     // MARK: Subject under test
-    
+
     var sut: MainScreenInteractor!
-    
+
     // MARK: Test lifecycle
-    
-    override func setUp()
-    {
+
+    override func setUp() {
         super.setUp()
         setupMainScreenInteractor()
     }
-    
-    override func tearDown()
-    {
+
+    override func tearDown() {
         super.tearDown()
     }
-    
+
     // MARK: Test setup
-    
-    func setupMainScreenInteractor()
-    {
+
+    func setupMainScreenInteractor() {
         sut = MainScreenInteractor()
     }
-    
+
     // MARK: Test doubles
-    
-    class MainScreenPresentationLogicSpy: MainScreenPresentationLogic
-    {
+
+    class MainScreenPresentationLogicSpy: MainScreenPresentationLogic {
         var presentSearchResultsCalled = false
         func presentSearchResults(response: MainScreen.FetchItems.Response) {
             presentSearchResultsCalled = true
         }
     }
-    
+
     // MARK: Tests
 }

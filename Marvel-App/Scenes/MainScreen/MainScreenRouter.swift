@@ -8,24 +8,20 @@
 
 import UIKit
 
-@objc protocol MainScreenRoutingLogic
-{
+@objc protocol MainScreenRoutingLogic {
     func passDataToCharacterDetail()
 }
 
-protocol MainScreenDataPassing
-{
+protocol MainScreenDataPassing {
     var dataStore: MainScreenDataStore? { get }
 }
 
-class MainScreenRouter: NSObject, MainScreenRoutingLogic, MainScreenDataPassing
-{
+class MainScreenRouter: NSObject, MainScreenRoutingLogic, MainScreenDataPassing {
     weak var viewController: MainScreenViewController?
     var dataStore: MainScreenDataStore?
-    
+
     // MARK: Passing data
-    func passDataToCharacterDetail()
-    {
+    func passDataToCharacterDetail() {
         if let selectedIndexPath = viewController?.table.indexPathForSelectedRow {
             if let selectedCharacter = dataStore?.characters![selectedIndexPath.row] {
                 let detailViewController: DetailScreenViewController = UIStoryboard(storyboard: .Main).instantiateViewController()

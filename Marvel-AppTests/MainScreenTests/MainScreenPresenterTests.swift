@@ -13,55 +13,49 @@
 @testable import Marvel_App
 import XCTest
 
-class MainScreenPresenterTests: XCTestCase
-{
+class MainScreenPresenterTests: XCTestCase {
   // MARK: Subject under test
-  
+
   var sut: MainScreenPresenter!
-  
+
   // MARK: Test lifecycle
-  
-  override func setUp()
-  {
+
+  override func setUp() {
     super.setUp()
     setupMainScreenPresenter()
   }
-  
-  override func tearDown()
-  {
+
+  override func tearDown() {
     super.tearDown()
   }
-  
+
   // MARK: Test setup
-  
-  func setupMainScreenPresenter()
-  {
+
+  func setupMainScreenPresenter() {
     sut = MainScreenPresenter()
   }
-  
+
   // MARK: Test doubles
-  
-  class MainScreenDisplayLogicSpy: MainScreenDisplayLogic
-  {
+
+  class MainScreenDisplayLogicSpy: MainScreenDisplayLogic {
     var displayFetchedItemsCalled = false
     func displayFetchedItems(viewModel: MainScreen.FetchItems.ViewModel) {
         displayFetchedItemsCalled = true
     }
   }
-  
+
   // MARK: Tests
-  
-  func testPresentCharacters()
-  {
+
+  func testPresentCharacters() {
     // Given
     let mock = Mock.CharacterMock()
     let spy = MainScreenDisplayLogicSpy()
     sut.viewController = spy
     let response = MainScreen.FetchItems.Response(characters: [mock.venom])
-    
+
     // When
     sut.presentSearchResults(response: response)
-    
+
     // Then
     XCTAssertTrue(spy.displayFetchedItemsCalled, "presentSomething(response:) should ask the view controller to display the result")
   }

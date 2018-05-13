@@ -10,7 +10,6 @@ import Foundation
 import Kingfisher
 import Alamofire
 
-
 fileprivate enum URLType: String {
     case image = "?"
     case `default` = "&"
@@ -20,45 +19,44 @@ private let portraitImageSize = "/portrait_xlarge."
 private let landscapeImageSize = "/landscape_large."
 
 final class APIClient {
-    
+
     var baseURL = "https://gateway.marvel.com:443/v1/public/"
     let publicKey = "4b6904ea45800a7ce5c7d09c841cd51e"
     let privateKey = "a07365ea7e566693e58ae54f058281fe4c1f4a53"
-    
-    
+
     private lazy var configURL: String = {
         return "%@ts=%@&apikey=\(self.publicKey)&hash=%@"
     }()
-    
+
     private lazy var apiConfig: String = {
         let ts = NSDate().timeIntervalSince1970.description
-        let md5String:String = ts+privateKey+publicKey
+        let md5String: String = ts+privateKey+publicKey
         return String(format: configURL, "&", ts, md5String.md5())
     }()
-    
-    private func getLink(url: String, urlType: URLType)->String{
+
+    private func getLink(url: String, urlType: URLType) -> String {
         let ts = NSDate().timeIntervalSince1970.description
-        let md5String:String = ts+privateKey+publicKey
+        let md5String: String = ts+privateKey+publicKey
         return String.init(format: url + configURL, urlType.rawValue, ts, md5String.md5())
     }
-    
-    func search(string: String, completion: @escaping (_ entity: [Character]?, _ error: Error?)->Void) {
+
+    func search(string: String, completion: @escaping (_ entity: [Character]?, _ error: Error?) -> Void) {
         let url = getLink(url: baseURL+"characters?nameStartsWith=\(string)&orderBy=name", urlType: .default)
-        request(with: url, type: ServiceResponse<Character>.self) { (result, error) in
+        request(with: url, type: ServiceResponse<Character>.self) { (result, _) in
             return completion(result?.data?.results, nil)
         }
     }
-    
-    func getComicThumbnailData(url: String, completion: @escaping (_ entity: String?, _ error: Error?)->Void){
+
+    func getComicThumbnailData(url: String, completion: @escaping (_ entity: String?, _ error: Error?) -> Void) {
         let defURL = getLink(url: url, urlType: .image)
-        request(with: defURL, type: ServiceResponse<Comic>.self) { (result, error) in
+        request(with: defURL, type: ServiceResponse<Comic>.self) { (result, _) in
             guard let data = result?.data, let thumbnail = data.results![0].thumbnail else { return }
             let imageURL = thumbnail.path + portraitImageSize + thumbnail.thumbnailExtension
             return completion(imageURL, nil)
         }
     }
-    
-    private func request<T:Decodable>(with url: String, type: T.Type, completion: @escaping (_ result: T?, _ error: Error?) -> Void) {
+
+    private func request<T: Decodable>(with url: String, type: T.Type, completion: @escaping (_ result: T?, _ error: Error?) -> Void) {
         Alamofire.request(url).responseData { (response) in
             switch response.result {
             case .success:
@@ -76,7 +74,7 @@ final class APIClient {
             }
         }
     }
-    
+
     static func getImageURL(downloadURL: String, extension: String) -> URL? {
         let path = downloadURL + landscapeImageSize + `extension`
         guard let url = URL(string: path) else { return nil }
