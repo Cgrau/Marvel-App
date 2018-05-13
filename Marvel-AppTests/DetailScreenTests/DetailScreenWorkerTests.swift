@@ -1,5 +1,5 @@
 //
-//  MainScreenWorkerTests.swift
+//  DetailScreenWorkerTests.swift
 //  Marvel-App
 //
 //  Created by Carles Grau Galvan on 13/05/2018.
@@ -13,18 +13,18 @@
 @testable import Marvel_App
 import XCTest
 
-class MainScreenWorkerTests: XCTestCase
+class DetailScreenWorkerTests: XCTestCase
 {
   // MARK: Subject under test
   
-  var sut: MainScreenWorker!
+  var sut: DetailScreenWorker!
   
   // MARK: Test lifecycle
   
   override func setUp()
   {
     super.setUp()
-    setupMainScreenWorker()
+    setupDetailScreenWorker()
   }
   
   override func tearDown()
@@ -34,21 +34,27 @@ class MainScreenWorkerTests: XCTestCase
   
   // MARK: Test setup
   
-  func setupMainScreenWorker()
+  func setupDetailScreenWorker()
   {
-    sut = MainScreenWorker()
+    sut = DetailScreenWorker()
   }
   
   // MARK: Test doubles
   
   // MARK: Tests
   
-  func testSomething()
+  func testGetCollectionData()
   {
     // Given
+    let items = Mock.ResourceMock().res.items
     
     // When
+    let data = sut.getCollectionSetupResponse(items: items)
     
     // Then
+    XCTAssertNotNil(data)
+    XCTAssertNotNil(data.dataSource)
+    XCTAssertNotNil(data.delegate)
+    XCTAssertNotNil(data.dataSource.resourceData)
   }
 }

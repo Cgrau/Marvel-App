@@ -23,7 +23,6 @@
 		939F094320A5C4460030B52C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F094220A5C4460030B52C /* ViewController.swift */; };
 		939F094820A5C4460030B52C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939F094720A5C4460030B52C /* Assets.xcassets */; };
 		939F094B20A5C4460030B52C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 939F094920A5C4460030B52C /* LaunchScreen.storyboard */; };
-		939F095620A5C4470030B52C /* Marvel_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F095520A5C4470030B52C /* Marvel_AppTests.swift */; };
 		93ACF89220A6EE3800CE51C3 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ACF89120A6EE3800CE51C3 /* APIClient.swift */; };
 		93ACF89A20A6F86600CE51C3 /* DetailScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ACF89420A6F86600CE51C3 /* DetailScreenPresenter.swift */; };
 		93ACF89B20A6F86600CE51C3 /* DetailScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ACF89520A6F86600CE51C3 /* DetailScreenWorker.swift */; };
@@ -43,6 +42,11 @@
 		93E03E5720A89A2C006F1E00 /* MainScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E03E5320A89A2C006F1E00 /* MainScreenInteractorTests.swift */; };
 		93E03E5820A89A2C006F1E00 /* MainScreenWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E03E5420A89A2C006F1E00 /* MainScreenWorkerTests.swift */; };
 		93E03E5920A89A2C006F1E00 /* MainScreenPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E03E5520A89A2C006F1E00 /* MainScreenPresenterTests.swift */; };
+		93EBE25B20A8A8E300268BA5 /* CharacterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EBE25A20A8A8E300268BA5 /* CharacterMock.swift */; };
+		93EBE26220A8B37100268BA5 /* DetailScreenViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EBE25E20A8B37100268BA5 /* DetailScreenViewControllerTests.swift */; };
+		93EBE26320A8B37100268BA5 /* DetailScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EBE25F20A8B37100268BA5 /* DetailScreenInteractorTests.swift */; };
+		93EBE26420A8B37100268BA5 /* DetailScreenWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EBE26020A8B37100268BA5 /* DetailScreenWorkerTests.swift */; };
+		93EBE26520A8B37100268BA5 /* DetailScreenPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EBE26120A8B37100268BA5 /* DetailScreenPresenterTests.swift */; };
 		A8343A325D5144F10C393354 /* Pods_Marvel_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBED84B97499DEF552A1032 /* Pods_Marvel_App.framework */; };
 		AAED5570CBA11D34136DBC53 /* Pods_Marvel_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D5FEDAA8D3B935E7F6DE357 /* Pods_Marvel_AppTests.framework */; };
 /* End PBXBuildFile section */
@@ -83,7 +87,6 @@
 		939F094A20A5C4460030B52C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		939F094C20A5C4460030B52C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		939F095120A5C4470030B52C /* Marvel-AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Marvel-AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		939F095520A5C4470030B52C /* Marvel_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marvel_AppTests.swift; sourceTree = "<group>"; };
 		939F095720A5C4470030B52C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93ACF89120A6EE3800CE51C3 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		93ACF89420A6F86600CE51C3 /* DetailScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenPresenter.swift; sourceTree = "<group>"; };
@@ -104,6 +107,11 @@
 		93E03E5320A89A2C006F1E00 /* MainScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractorTests.swift; sourceTree = "<group>"; };
 		93E03E5420A89A2C006F1E00 /* MainScreenWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenWorkerTests.swift; sourceTree = "<group>"; };
 		93E03E5520A89A2C006F1E00 /* MainScreenPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenterTests.swift; sourceTree = "<group>"; };
+		93EBE25A20A8A8E300268BA5 /* CharacterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterMock.swift; sourceTree = "<group>"; };
+		93EBE25E20A8B37100268BA5 /* DetailScreenViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewControllerTests.swift; sourceTree = "<group>"; };
+		93EBE25F20A8B37100268BA5 /* DetailScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenInteractorTests.swift; sourceTree = "<group>"; };
+		93EBE26020A8B37100268BA5 /* DetailScreenWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenWorkerTests.swift; sourceTree = "<group>"; };
+		93EBE26120A8B37100268BA5 /* DetailScreenPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,12 +194,9 @@
 		939F095420A5C4470030B52C /* Marvel-AppTests */ = {
 			isa = PBXGroup;
 			children = (
-				939F095520A5C4470030B52C /* Marvel_AppTests.swift */,
+				93EBE25C20A8B33D00268BA5 /* MainScreenTests */,
+				93EBE25D20A8B35700268BA5 /* DetailScreenTests */,
 				939F095720A5C4470030B52C /* Info.plist */,
-				93E03E5220A89A2C006F1E00 /* MainScreenViewControllerTests.swift */,
-				93E03E5320A89A2C006F1E00 /* MainScreenInteractorTests.swift */,
-				93E03E5420A89A2C006F1E00 /* MainScreenWorkerTests.swift */,
-				93E03E5520A89A2C006F1E00 /* MainScreenPresenterTests.swift */,
 			);
 			path = "Marvel-AppTests";
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 			children = (
 				93DAEF1020A5FD8400B0D3DD /* Character.swift */,
 				935E468C20A7113D001843D2 /* Comic.swift */,
+				93EBE25A20A8A8E300268BA5 /* CharacterMock.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -277,6 +283,28 @@
 				93DAEF3A20A623AB00B0D3DD /* HeroTableCell.xib */,
 			);
 			path = TableCells;
+			sourceTree = "<group>";
+		};
+		93EBE25C20A8B33D00268BA5 /* MainScreenTests */ = {
+			isa = PBXGroup;
+			children = (
+				93E03E5220A89A2C006F1E00 /* MainScreenViewControllerTests.swift */,
+				93E03E5320A89A2C006F1E00 /* MainScreenInteractorTests.swift */,
+				93E03E5420A89A2C006F1E00 /* MainScreenWorkerTests.swift */,
+				93E03E5520A89A2C006F1E00 /* MainScreenPresenterTests.swift */,
+			);
+			path = MainScreenTests;
+			sourceTree = "<group>";
+		};
+		93EBE25D20A8B35700268BA5 /* DetailScreenTests */ = {
+			isa = PBXGroup;
+			children = (
+				93EBE25E20A8B37100268BA5 /* DetailScreenViewControllerTests.swift */,
+				93EBE25F20A8B37100268BA5 /* DetailScreenInteractorTests.swift */,
+				93EBE26020A8B37100268BA5 /* DetailScreenWorkerTests.swift */,
+				93EBE26120A8B37100268BA5 /* DetailScreenPresenterTests.swift */,
+			);
+			path = DetailScreenTests;
 			sourceTree = "<group>";
 		};
 		BC78649F56BC9048EB6E6D35 /* Pods */ = {
@@ -505,6 +533,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93EBE25B20A8A8E300268BA5 /* CharacterMock.swift in Sources */,
 				93ACF89E20A6F86600CE51C3 /* DetailScreenViewController.swift in Sources */,
 				93DAEF1120A5FD8400B0D3DD /* Character.swift in Sources */,
 				93DAEF2820A621FE00B0D3DD /* RoundView.swift in Sources */,
@@ -538,9 +567,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93EBE26420A8B37100268BA5 /* DetailScreenWorkerTests.swift in Sources */,
+				93EBE26320A8B37100268BA5 /* DetailScreenInteractorTests.swift in Sources */,
 				93E03E5820A89A2C006F1E00 /* MainScreenWorkerTests.swift in Sources */,
+				93EBE26220A8B37100268BA5 /* DetailScreenViewControllerTests.swift in Sources */,
 				93E03E5920A89A2C006F1E00 /* MainScreenPresenterTests.swift in Sources */,
-				939F095620A5C4470030B52C /* Marvel_AppTests.swift in Sources */,
+				93EBE26520A8B37100268BA5 /* DetailScreenPresenterTests.swift in Sources */,
 				93E03E5720A89A2C006F1E00 /* MainScreenInteractorTests.swift in Sources */,
 				93E03E5620A89A2C006F1E00 /* MainScreenViewControllerTests.swift in Sources */,
 			);

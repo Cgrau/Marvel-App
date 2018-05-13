@@ -43,24 +43,26 @@ class MainScreenPresenterTests: XCTestCase
   
   class MainScreenDisplayLogicSpy: MainScreenDisplayLogic
   {
+    var displayFetchedItemsCalled = false
     func displayFetchedItems(viewModel: MainScreen.FetchItems.ViewModel) {
-        <#code#>
+        displayFetchedItemsCalled = true
     }
   }
   
   // MARK: Tests
   
-  func testPresentSomething()
+  func testPresentCharacters()
   {
     // Given
+    let mock = Mock.CharacterMock()
     let spy = MainScreenDisplayLogicSpy()
     sut.viewController = spy
-    let response = MainScreen.FetchItems.Response(characters: [Character])
+    let response = MainScreen.FetchItems.Response(characters: [mock.venom])
     
     // When
-    sut.presentSomething(response: response)
+    sut.presentSearchResults(response: response)
     
     // Then
-    XCTAssertTrue(spy.displaySomethingCalled, "presentSomething(response:) should ask the view controller to display the result")
+    XCTAssertTrue(spy.displayFetchedItemsCalled, "presentSomething(response:) should ask the view controller to display the result")
   }
 }

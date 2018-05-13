@@ -44,12 +44,15 @@ class DetailScreenInteractor: DetailScreenBusinessLogic, DetailScreenDataStore
     }
     
     func requestComicCollection(request: DetailScreen.CollectionSettings.Request) {
-        presenter?.presentComicCollection(request: worker.getCollectionSetupResponse(items: request.items))
+        guard let items = request.items else { return }
+        presenter?.presentComicCollection(request: worker.getCollectionSetupResponse(items: items))
     }
     func requestSerieCollection(request: DetailScreen.CollectionSettings.Request) {
-        presenter?.presentSerieCollection(request: worker.getCollectionSetupResponse(items: request.items))
+        guard let items = request.items else { return }
+        presenter?.presentSerieCollection(request: worker.getCollectionSetupResponse(items: items))
     }
     func requestEventCollection(request: DetailScreen.CollectionSettings.Request) {
-        presenter?.presentEventCollection(request: worker.getCollectionSetupResponse(items: request.items))
+        guard let items = request.items else { return }
+        presenter?.presentEventCollection(request: worker.getCollectionSetupResponse(items: items))
     }
 }
