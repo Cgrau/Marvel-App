@@ -23,7 +23,7 @@ class HeroTableCell: UITableViewCell {
     func fillCell(withData data: Character) {
         guard let thumbnail = data.thumbnail else { return }
         guard let url = APIClient.getImageURL(downloadURL: thumbnail.path, extension: thumbnail.thumbnailExtension) else { return }
-        let resource = ImageResource(downloadURL: url)
+        let resource = KF.ImageResource(downloadURL: url)
         self.thumbnail.setImage(with: resource, activateLoader: true)
         self.name.text = data.name
     }

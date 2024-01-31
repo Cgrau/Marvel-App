@@ -57,17 +57,15 @@ final class APIClient {
     }
 
     private func request<T: Decodable>(with url: String, type: T.Type, completion: @escaping (_ result: T?, _ error: Error?) -> Void) {
-        Alamofire.request(url).responseData { (response) in
+        AF.request(url).responseData { (response) in
             switch response.result {
-            case .success:
-                if let jsonData = response.result.value {
-                    do {
-                        let decoder = JSONDecoder()
-                        let product = try decoder.decode(T.self, from: jsonData)
-                        return completion(product, nil)
-                    } catch let error {
-                        print(error)
-                    }
+            case .success(let data):
+                do {
+                    let decoder = JSONDecoder()
+                    let product = try decoder.decode(T.self, from: data)
+                    return completion(product, nil)
+                } catch let error {
+                    print(error)
                 }
             case .failure(let error):
                 completion(nil, error)

@@ -35,7 +35,7 @@ class DetailScreenInteractor: DetailScreenBusinessLogic, DetailScreenDataStore {
         selectedCharacter = request.char
         guard let thumbnail = request.char.thumbnail else { return }
         guard let url = APIClient.getImageURL(downloadURL: thumbnail.path, extension: thumbnail.thumbnailExtension) else { return }
-        let resource = ImageResource(downloadURL: url)
+        let resource = KF.ImageResource(downloadURL: url)
         let response = DetailScreen.SelectedCharacter.Response(name: request.char.name, thumbnailResource: resource, description: request.char.description)
         presenter?.presentCharacter(response: response)
     }

@@ -20,8 +20,8 @@ enum Mock {
             char.comics = ResourceMock().res
             return char
         }
-        var imageResource: ImageResource {
-            let imageR = ImageResource(downloadURL: URL(string: (venom.thumbnail?.path)! + "/portrait_xlarge." + (venom.thumbnail?.thumbnailExtension)!)!)
+        var imageResource: KF.ImageResource {
+            let imageR = KF.ImageResource(downloadURL: URL(string: (venom.thumbnail?.path)! + "/portrait_xlarge." + (venom.thumbnail?.thumbnailExtension)!)!)
             return imageR
         }
     }

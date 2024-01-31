@@ -21,12 +21,12 @@ enum DetailScreen {
         }
         struct Response {
             var name: String
-            var thumbnailResource: ImageResource
+            var thumbnailResource: KF.ImageResource
             var description: String
         }
         struct ViewModel {
             var name: String
-            var thumbnailResource: ImageResource
+            var thumbnailResource: KF.ImageResource
             var description: String?
         }
     }

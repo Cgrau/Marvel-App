@@ -31,7 +31,7 @@ class ResourceCollectionViewCell: UICollectionViewCell {
     func fillCell(withData data: Item) {
         MainScreenWorker().getComicThumbnailData(url: data.resourceURI) { (comicImage, _) in
             guard let comicImage = comicImage, let url = URL(string: comicImage) else { return }
-            let resource = ImageResource(downloadURL: url)
+            let resource = KF.ImageResource(downloadURL: url)
             self.thumbnail.setImage(with: resource, activateLoader: true)
         }
     }
