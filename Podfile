@@ -8,6 +8,7 @@ target 'Marvel-App' do
 pod 'Alamofire'
 pod 'CryptoSwift'
 pod 'Kingfisher'
+pod 'SnapKit'
 
   # Pods for Marvel-App
 

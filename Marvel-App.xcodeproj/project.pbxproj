@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CD4E5232B6AEAD6003920F5 /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4E5222B6AEAD6003920F5 /* UIView+Autolayout.swift */; };
+		2CD4E5262B6AECF6003920F5 /* UIView+Margin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4E5252B6AECF6003920F5 /* UIView+Margin.swift */; };
+		2CD4E5282B6AED1D003920F5 /* UIView+Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4E5272B6AED1D003920F5 /* UIView+Spacing.swift */; };
+		2CD4E52F2B6AEF62003920F5 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4E52E2B6AEF62003920F5 /* View.swift */; };
+		2CD4E5312B6AEF88003920F5 /* MotionLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4E5302B6AEF88003920F5 /* MotionLoadingView.swift */; };
 		930433CE20A5FAB100AC2BE5 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930433C820A5FAB100AC2BE5 /* MainScreenPresenter.swift */; };
 		930433CF20A5FAB100AC2BE5 /* MainScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930433C920A5FAB100AC2BE5 /* MainScreenWorker.swift */; };
 		930433D020A5FAB100AC2BE5 /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930433CA20A5FAB100AC2BE5 /* MainScreenRouter.swift */; };
@@ -63,6 +68,11 @@
 
 /* Begin PBXFileReference section */
 		05297C13E0F607732E8DD418 /* Pods-Marvel-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel-App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel-App/Pods-Marvel-App.debug.xcconfig"; sourceTree = "<group>"; };
+		2CD4E5222B6AEAD6003920F5 /* UIView+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Autolayout.swift"; sourceTree = "<group>"; };
+		2CD4E5252B6AECF6003920F5 /* UIView+Margin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Margin.swift"; sourceTree = "<group>"; };
+		2CD4E5272B6AED1D003920F5 /* UIView+Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Spacing.swift"; sourceTree = "<group>"; };
+		2CD4E52E2B6AEF62003920F5 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		2CD4E5302B6AEF88003920F5 /* MotionLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionLoadingView.swift; sourceTree = "<group>"; };
 		4CBB06290EA367E6C57B8117 /* Pods-Marvel-AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel-AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel-AppTests/Pods-Marvel-AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4E9BBC57AA6FE9F61CADF338 /* Pods-Marvel-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel-AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel-AppTests/Pods-Marvel-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		5472B4CEB7345EEC4DB9AAB2 /* Pods-Marvel-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel-App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel-App/Pods-Marvel-App.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +151,18 @@
 				5D5FEDAA8D3B935E7F6DE357 /* Pods_Marvel_AppTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2CD4E5242B6AECDA003920F5 /* Autolayout */ = {
+			isa = PBXGroup;
+			children = (
+				2CD4E5222B6AEAD6003920F5 /* UIView+Autolayout.swift */,
+				2CD4E5252B6AECF6003920F5 /* UIView+Margin.swift */,
+				2CD4E5272B6AED1D003920F5 /* UIView+Spacing.swift */,
+				2CD4E52E2B6AEF62003920F5 /* View.swift */,
+				2CD4E5302B6AEF88003920F5 /* MotionLoadingView.swift */,
+			);
+			path = Autolayout;
 			sourceTree = "<group>";
 		};
 		935E469E20A71D8C001843D2 /* Collections */ = {
@@ -263,6 +285,7 @@
 				93DAEF2520A621FE00B0D3DD /* RoundView.swift */,
 				93DAEF2620A621FE00B0D3DD /* UIStoryboard+Extension.swift */,
 				935E469F20A7425E001843D2 /* UIImageView+KFLoader.swift */,
+				2CD4E5242B6AECDA003920F5 /* Autolayout */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -480,7 +503,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CD4E52F2B6AEF62003920F5 /* View.swift in Sources */,
 				93EBE25B20A8A8E300268BA5 /* CharacterMock.swift in Sources */,
+				2CD4E5232B6AEAD6003920F5 /* UIView+Autolayout.swift in Sources */,
 				93ACF89E20A6F86600CE51C3 /* DetailScreenViewController.swift in Sources */,
 				93DAEF1120A5FD8400B0D3DD /* Character.swift in Sources */,
 				93DAEF2820A621FE00B0D3DD /* RoundView.swift in Sources */,
@@ -500,10 +525,13 @@
 				93ACF89B20A6F86600CE51C3 /* DetailScreenWorker.swift in Sources */,
 				935E46A020A7425E001843D2 /* UIImageView+KFLoader.swift in Sources */,
 				935E468D20A7113D001843D2 /* Comic.swift in Sources */,
+				2CD4E5282B6AED1D003920F5 /* UIView+Spacing.swift in Sources */,
+				2CD4E5312B6AEF88003920F5 /* MotionLoadingView.swift in Sources */,
 				93DAEF2D20A622F100B0D3DD /* HeroesTableDataSource.swift in Sources */,
 				93DAEF3B20A623AB00B0D3DD /* HeroTableCell.swift in Sources */,
 				930433D120A5FAB100AC2BE5 /* MainScreenModels.swift in Sources */,
 				930433CE20A5FAB100AC2BE5 /* MainScreenPresenter.swift in Sources */,
+				2CD4E5262B6AECF6003920F5 /* UIView+Margin.swift in Sources */,
 				93ACF89220A6EE3800CE51C3 /* APIClient.swift in Sources */,
 				935E469C20A71BE2001843D2 /* ResourceCollectionViewCell.swift in Sources */,
 				93DAEF2E20A622F100B0D3DD /* HeroesTableDelegate.swift in Sources */,
